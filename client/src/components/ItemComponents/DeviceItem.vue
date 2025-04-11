@@ -32,6 +32,7 @@
             <p class="device-price">{{ device.price.toFixed(2) }}</p>
             <p class="device-available">Available: {{ device.stock }}</p>
           </div>
+          <router-link :to="'/devices/' + device._id" class="btn btn-primary">View Details</router-link>
         </div>
 
         <!-- Right Arrow for scrolling -->
@@ -248,5 +249,8 @@
 
   .product-scroll-container::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+  }
+  .btn-primary{
+    background-color: blue;
   }
   </style>

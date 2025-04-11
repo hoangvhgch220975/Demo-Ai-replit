@@ -48,9 +48,14 @@ const router = new Router({
       component: HomePage // Use HomePage component for the root route
     },
     {
-      path: '/',
-      name: 'Device',
-      component: DeviceItem // Use Device component for the device route
+      path: '/devices',
+      name: 'Devices',
+      component: DeviceItem
+    },
+    {
+      path: '/devices/:id',
+      name: 'DeviceDetails',
+      component: () => import('@/pages/client/Device/DeviceDetails.vue')
     },
 
 
