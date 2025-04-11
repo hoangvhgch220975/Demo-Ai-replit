@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = `${window.location.protocol}//${window.location.hostname}/devices`;
+const API_BASE = `${window.location.protocol}//${window.location.hostname}:5000/devices`;
 
 // Get all devices
 export const getAllDevices = async () => {
