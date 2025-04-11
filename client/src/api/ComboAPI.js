@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = `http://localhost:3333/combos`;
+const API_BASE = `http://0.0.0.0:5000/combos`;
 
 // Get all combos
 export const getAllCombos = async () => {
