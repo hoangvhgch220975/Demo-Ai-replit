@@ -115,7 +115,7 @@
     display: flex;
     overflow-x: auto; /* Use auto for smoother scrolling */
     gap: 30px;
-    padding: 20px;
+    padding: 60px; /* Updated padding */
     align-items: center;
     position: relative;
     justify-content: center;
@@ -268,12 +268,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
   }
 
   .product-card:hover .device-hover-overlay {
