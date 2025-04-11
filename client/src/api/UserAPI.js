@@ -1,8 +1,7 @@
 import axios from "axios";
 
-const API_BASE = 'http://localhost:5000/api/auth';
-
-const API_USER = 'http://localhost:5000/users';
+const API_BASE = `http://${window.location.hostname}:5000/api/auth`;
+const API_USER = `http://${window.location.hostname}:5000/users`;
 
 // Login user
 export const loginUser = async (credentials) => {
@@ -123,5 +122,3 @@ export const checkEmailExists = async (email) => {
         throw err;
     }
 };
-
-
