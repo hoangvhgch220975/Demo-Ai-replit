@@ -15,8 +15,10 @@ mongoose.connect(dbURI)
 // Enable CORS
 const cors = require('cors');
 app.use(cors({
-  origin: '*',
-  credentials: false
+  origin: ['http://0.0.0.0:8080', 'http://localhost:8080'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Middleware
