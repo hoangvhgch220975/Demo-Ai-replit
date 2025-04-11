@@ -1,5 +1,6 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
     <div class="navbar-container">
       <!-- Logo and Shop Name -->
       <div class="logo-container">
