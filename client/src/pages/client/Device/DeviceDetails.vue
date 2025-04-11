@@ -84,10 +84,13 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 80px; /* Add spacing below navbar */
 }
 .container {
   flex: 1;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .card {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
