@@ -6,3 +6,39 @@ channel = "stable-24_05"
 [deployment]
 run = ["sh", "-c", "cd server && npm install && npm start"]
 build = ["sh", "-c", "cd client && npm install && npm run build"]
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Start Server"
+author = 40684964
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm start"
+
+[[workflows.workflow]]
+name = "Start Client"
+author = 40684964
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd client"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run serve"
