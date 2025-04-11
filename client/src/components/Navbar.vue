@@ -1,66 +1,68 @@
+
 <template>
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-    <div class="navbar-container">
-      <!-- Logo and Shop Name -->
-      <div class="logo-container">
-        <router-link to="/" class="logo-link">
-          <img src="@/assets/smartshop-high-resolution-logo.png" alt="SmartShop Logo" class="logo" />
-          <span class="shop-name">SmartShop</span>
-        </router-link>
-      </div>
-
-      <!-- Search Bar -->
-      <div class="search-bar">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
-          placeholder="Search for products..." 
-          @input="searchProducts"
-        />
-      </div>
-
-      <!-- Cart Icon with Badge -->
-      <ul class="nav-links" :class="{ active: isMenuOpen }">
-        <li class="cart-icon">
-          <router-link v-if="user" to="/cart">
-            <i class="fa-solid fa-cart-shopping" :data-count="cartItemCount"></i>
+      <div class="navbar-container">
+        <!-- Logo and Shop Name -->
+        <div class="logo-container">
+          <router-link to="/" class="logo-link">
+            <img src="@/assets/smartshop-high-resolution-logo.png" alt="SmartShop Logo" class="logo" />
+            <span class="shop-name">SmartShop</span>
           </router-link>
-          <a v-else href="#" @click.prevent="showLoginNotification">
-            <i class="fa-solid fa-cart-shopping" :data-count="cartItemCount"></i>
-          </a>
-        </li>
+        </div>
 
-        <!-- Navigation Links -->
-        <li class="dropdown">
-          <router-link to="/">Shop</router-link>
-          <ul class="dropdown-menu">
-            <li><router-link to="/shop/device">Device</router-link></li>
-            <li><router-link to="/shop/package">Package</router-link></li>
-            <li><router-link to="/shop/combo">Combo</router-link></li>
-          </ul>
-        </li>
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input 
+            type="text" 
+            v-model="searchQuery" 
+            placeholder="Search for products..." 
+            @input="searchProducts"
+          />
+        </div>
 
-        <li><router-link to="/contact">Contact</router-link></li>
+        <!-- Cart Icon with Badge -->
+        <ul class="nav-links" :class="{ active: isMenuOpen }">
+          <li class="cart-icon">
+            <router-link v-if="user" to="/cart">
+              <i class="fa-solid fa-cart-shopping" :data-count="cartItemCount"></i>
+            </router-link>
+            <a v-else href="#" @click.prevent="showLoginNotification">
+              <i class="fa-solid fa-cart-shopping" :data-count="cartItemCount"></i>
+            </a>
+          </li>
 
-        <!-- Show login/signup if not logged in -->
-        <template v-if="!user">
-          <li><router-link to="/login">Login</router-link></li>
-          <li><router-link to="/signup">Signup</router-link></li>
-        </template>
+          <!-- Navigation Links -->
+          <li class="dropdown">
+            <router-link to="/">Shop</router-link>
+            <ul class="dropdown-menu">
+              <li><router-link to="/shop/device">Device</router-link></li>
+              <li><router-link to="/shop/package">Package</router-link></li>
+              <li><router-link to="/shop/combo">Combo</router-link></li>
+            </ul>
+          </li>
 
-        <!-- Show user info and logout if logged in -->
-        <template v-else>
-          <li class="text-white"><router-link to="/profile">👋 Hello, {{ user.username }}</router-link></li>
-          <li><a href="#" @click.prevent="logout">🚪 Logout</a></li>
-        </template>
-      </ul>
+          <li><router-link to="/contact">Contact</router-link></li>
 
-      <!-- Hamburger Menu for Mobile -->
-      <div class="hamburger" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+          <!-- Show login/signup if not logged in -->
+          <template v-if="!user">
+            <li><router-link to="/login">Login</router-link></li>
+            <li><router-link to="/signup">Signup</router-link></li>
+          </template>
+
+          <!-- Show user info and logout if logged in -->
+          <template v-else>
+            <li class="text-white"><router-link to="/profile">👋 Hello, {{ user.username }}</router-link></li>
+            <li><a href="#" @click.prevent="logout">🚪 Logout</a></li>
+          </template>
+        </ul>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </nav>
