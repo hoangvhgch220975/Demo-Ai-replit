@@ -16,7 +16,14 @@
               <p class="card-text"><strong>Stock:</strong> {{device.stock}} units</p>
               <p class="card-text"><strong>Rating:</strong> {{device.rating}} / 5</p>
               <p class="card-text"><strong>Description:</strong> {{device.description}}</p>
-              <router-link to="/" class="btn btn-primary">Back to Home</router-link>
+              <div class="action-buttons">
+                <button class="add-to-cart-btn" @click="addToCart(device)">
+                  <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <router-link to="/" class="back-btn">
+                  <i class="fas fa-arrow-left"></i>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -75,5 +82,71 @@ img {
   height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.add-to-cart-btn {
+  background-color: #7ecf2f;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #333;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-body {
+  background-color: white;
+}
+
+.card-title {
+  color: #000;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card-text {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 </style>

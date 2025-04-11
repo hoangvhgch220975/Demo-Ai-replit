@@ -28,11 +28,18 @@
             <p class="device-description">{{ device.description }}</p>
           </div>
           <!-- Price and Availability section -->
-          <div class="device-price-stock">
-            <p class="device-price">{{ device.price.toFixed(2) }}</p>
+          <div class="device-hover-overlay">
+            <router-link :to="'/devices/' + device._id" class="view-details-btn">View Details</router-link>
+          </div>
+          <div class="device-info-bottom">
+            <div class="price-cart-row">
+              <p class="device-price">${{ device.price.toFixed(2) }}</p>
+              <button class="add-to-cart-btn" @click.stop="addToCart(device)">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
             <p class="device-available">Available: {{ device.stock }}</p>
           </div>
-          <router-link :to="'/devices/' + device._id" class="btn btn-primary">View Details</router-link>
         </div>
 
         <!-- Right Arrow for scrolling -->
@@ -250,7 +257,82 @@
   .product-scroll-container::-webkit-scrollbar-thumb:hover {
     background-color: #555;
   }
-  .btn-primary{
-    background-color: blue;
+
+  .device-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover .device-hover-overlay {
+    opacity: 1;
+  }
+
+  .view-details-btn {
+    padding: 12px 24px;
+    background-color: #7ecf2f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .view-details-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .device-info-bottom {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .price-cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .device-price {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #7ecf2f;
+    padding: 8px 15px;
+    border-radius: 25px;
+  }
+
+  .add-to-cart-btn {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #333;
+  }
+
+  .device-available {
+    color: #666;
+    margin: 5px 0;
+    font-size: 14px;
   }
   </style>
