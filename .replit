@@ -17,15 +17,7 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd server"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm install"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node server.js"
+args = "cd server && npm install && node server.js"
 
 [[workflows.workflow]]
 name = "Start Client"
@@ -34,12 +26,4 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd client"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm install"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run serve -- --host 0.0.0.0"
+args = "cd client && npm install && npm run serve -- --host 0.0.0.0"
