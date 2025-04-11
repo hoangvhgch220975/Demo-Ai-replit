@@ -14,7 +14,14 @@
               <p class="card-text"><strong>Category:</strong> {{device.category}}</p>
               <p class="card-text"><strong>Price:</strong> ${{device.price}}</p>
               <p class="card-text"><strong>Stock:</strong> {{device.stock}} units</p>
-              <p class="card-text"><strong>Rating:</strong> {{device.rating}} / 5</p>
+              <p class="card-text">
+                <strong>Rating:</strong>
+                <span class="star-rating">
+                  <i v-for="n in 5" :key="n" 
+                     :class="['fas', 'fa-star', { 'filled': n <= device.rating }]">
+                  </i>
+                </span>
+              </p>
               <p class="card-text"><strong>Description:</strong> {{device.description}}</p>
               <div class="action-buttons">
                 <button class="add-to-cart-btn" @click="addToCart(device)">
@@ -160,5 +167,19 @@ img {
   color: #666;
   margin-bottom: 15px;
   line-height: 1.6;
+}
+
+.star-rating {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.fa-star {
+  color: #ddd;
+  margin-right: 2px;
+}
+
+.fa-star.filled {
+  color: #ffd700;
 }
 </style>
