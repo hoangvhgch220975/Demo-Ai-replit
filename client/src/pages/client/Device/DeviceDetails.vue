@@ -8,7 +8,7 @@
           <h2 class="card-title">{{device.name}}</h2>
           <div class="row">
             <div class="col-md-6">
-              <img :src="device.image" class="img-fluid mb-3" alt="Device image" />
+              <img :src="getImageSrc(device.image)" class="img-fluid mb-3" alt="Device image" />
             </div>
             <div class="col-md-6">
               <p class="card-text"><strong>Category:</strong> {{device.category}}</p>
@@ -47,6 +47,18 @@ export default {
   data() {
     return {
       device: null
+    }
+  },
+  methods: {
+    getImageSrc(imagePath) {
+      if (!imagePath) return "";
+      if (imagePath.startsWith("http")) return imagePath;
+      try {
+        return require(`@/assets/imagedevice/${imagePath}`);
+      } catch (err) {
+        console.warn("Image not found:", imagePath);
+        return `http://0.0.0.0:5000/uploads/${imagePath}`;
+      }
     }
   },
   async created() {

@@ -96,6 +96,10 @@
       goToDeviceDetail(deviceId) {
         this.$router.push(`/devices/${deviceId}`);
       },
+      addToCart(device) {
+        // Add your add-to-cart logic here
+        console.log('Added to cart:', device);
+      }
     },
   };
   </script>
@@ -297,10 +301,11 @@
   }
 
   .price-cart-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin-bottom: 10px;
+    width: 100%;
   }
 
   .device-price {
@@ -311,6 +316,8 @@
     background-color: #7ecf2f;
     padding: 8px 15px;
     border-radius: 25px;
+    text-align: center;
+    width: 100%;
   }
 
   .add-to-cart-btn {
@@ -323,7 +330,9 @@
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    width: 100%;
   }
 
   .add-to-cart-btn:hover {
@@ -334,5 +343,7 @@
     color: #666;
     margin: 5px 0;
     font-size: 14px;
+    text-align: right;
+    padding-right: 15px;
   }
   </style>
