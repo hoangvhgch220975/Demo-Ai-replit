@@ -2,3 +2,7 @@ modules = ["vue-node-20", "nodejs-20", "web"]
 
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "cd server && npm install && npm start"]
+build = ["sh", "-c", "cd client && npm install && npm run build"]
