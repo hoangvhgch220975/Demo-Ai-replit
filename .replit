@@ -8,6 +8,7 @@ run = ["sh", "-c", "cd server && npm install && npm start"]
 build = ["sh", "-c", "cd client && npm install && npm run build"]
 
 [workflows]
+runButton = "Start Client"
 
 [[workflows.workflow]]
 name = "Start Server"
@@ -24,7 +25,7 @@ args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm start"
+args = "node server.js"
 
 [[workflows.workflow]]
 name = "Start Client"
@@ -41,4 +42,4 @@ args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run serve"
+args = "npm run serve -- --host 0.0.0.0"

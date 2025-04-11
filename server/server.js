@@ -1,5 +1,6 @@
 const express = require('express');
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 5000;
+const host = '0.0.0.0';
 const app = express();
 const path = require("path");
 require('dotenv').config(); // Load environment variables from .env file
@@ -47,7 +48,7 @@ app.get('/', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Server is running on port ${port}`);
   console.log(`http://localhost:${port}`);
 });
