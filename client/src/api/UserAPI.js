@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/auth";
+const API_BASE = `https://${window.location.hostname}/api/auth`;
 
-const API_USER = "http://localhost:5000/users";
+const API_USER = `https://${window.location.hostname}/users`;
 
 // Login user
 export const loginUser = async (credentials) => {
