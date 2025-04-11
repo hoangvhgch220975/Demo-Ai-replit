@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = `https://${window.location.hostname}/packages`;
+const API_BASE = `http://${window.location.hostname}:5000/packages`;
 
 // Get all packages
 export const getAllPackages = async () => {
